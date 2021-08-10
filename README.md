@@ -5,7 +5,7 @@
 - [ ] Circular Linked list
 - [ ] Doubly Linked list
 - [ ] Circular Doubly Linked list
-- [ ] Stack
+- [x] Stack
 - [ ] Queue
 - [ ] Tree / Binary Tree
 - [ ] Binary Search Tree
