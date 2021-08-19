@@ -73,6 +73,48 @@ class CircularLinkedList:
                     break
             return "Nothing found!"
 
+    def delete(self, location):
+        if self.head is None:
+            print("The list does not have any value.")
+        else:
+            if location == 0:
+                if self.head == self.tail:
+                    self.head.next = None
+                    self.head = None
+                    self.tail = None
+                else:
+                    self.head = self.head.next
+                    self.tail.next = self.head
+            elif location == -1:
+                if self.head == self.tail:
+                    self.head.next = None
+                    self.head = None
+                    self.tail = None
+                else:
+                    pointer = self.head
+                    while pointer is not None:
+                        if pointer.next == self.tail:
+                            break
+                        pointer = pointer.next
+                    pointer.next = self.head
+                    self.tail = pointer
+            else:
+                pointer = self.head
+                index = 0
+                while index < location - 1:
+                    pointer = pointer.next
+                    index += 1
+                temp_node = pointer.next
+                pointer.next = temp_node.next
+
+    def erase(self):
+        if self.head is None:
+            print("The list does not have any value.")
+        else:
+            self.head = None
+            self.tail.next = None
+            self.tail = None
+
 
 if __name__ == "__main__":
     circular_linked_list = CircularLinkedList()
@@ -88,6 +130,9 @@ if __name__ == "__main__":
     circular_linked_list.insert(90, 3)
     circular_linked_list.traverse()
 
-    print(circular_linked_list.search(10))
+    # print(circular_linked_list.search(10))
+    print([node.value for node in circular_linked_list])
+    # circular_linked_list.delete(2)
 
+    circular_linked_list.erase()
     print([node.value for node in circular_linked_list])
