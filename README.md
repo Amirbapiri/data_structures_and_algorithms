@@ -2,7 +2,7 @@
 
 ## TODO
 - [x] Singly Linked list
-- [ ] Circular Linked list
+- [x] Circular Singly Linked list
 - [ ] Doubly Linked list
 - [ ] Circular Doubly Linked list
 - [x] Stack
