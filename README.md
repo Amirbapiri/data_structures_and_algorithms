@@ -12,7 +12,7 @@
 - [ ] AVL Tree
 - [ ] Binary Heap
 - [ ] Trie
-- [ ] Bubble Sort
+- [x] Bubble Sort
 - [ ] Selection Sort
 - [ ] Insertion Sort
 - [ ] Bucket Sort
