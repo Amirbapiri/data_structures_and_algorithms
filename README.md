@@ -12,8 +12,14 @@
 - [ ] AVL Tree
 - [ ] Binary Heap
 - [ ] Trie
+- [ ] Bubble Sort
+- [ ] Selection Sort
+- [ ] Insertion Sort
+- [ ] Bucket Sort
+- [ ] Merge Sort
+- [ ] Quick Sort
+- [ ] Heap Sort
 - [ ] Hashing
-- [ ] Sort Algorithms
 - [ ] Searching Algorithms
 - [ ] Graph Algorithms
 - [ ] Graph Traversing
