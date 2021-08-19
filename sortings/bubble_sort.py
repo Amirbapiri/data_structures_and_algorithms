@@ -4,6 +4,13 @@
     they are in the wrong order.
 - Time complexity: O(n^2)
 - Space complexity: O(1)
+- Usage:
+    - When to use Bubble sort:
+        -- When the input is already sorted
+        -- Space is a concern
+        -- Easy to implement
+    - When to avoid Bubble sort:
+        -- Average time complexity is poor
 """
 
 
