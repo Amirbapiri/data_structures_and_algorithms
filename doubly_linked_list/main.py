@@ -53,6 +53,18 @@ class DoublyLinkedList:
                     print(pointer.value, end="->")
                 pointer = pointer.next
 
+    def reverse_traverse(self):
+        if self.tail is None:
+            print("Linked list is empty.")
+        else:
+            pointer = self.tail
+            while pointer:
+                if pointer.prev is None:
+                    print(pointer.value)
+                else:
+                    print(pointer.value, end="->")
+                pointer = pointer.prev
+
 
 if __name__ == "__main__":
     d = DoublyLinkedList()
@@ -64,3 +76,4 @@ if __name__ == "__main__":
     d.insert(6, 2)
     print([node.value for node in d])
     d.traverse()
+    d.reverse_traverse()
