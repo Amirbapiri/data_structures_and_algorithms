@@ -1,6 +1,3 @@
-from enum import Enum
-
-
 class Node:
     def __init__(self, value):
         self.value = value
@@ -44,6 +41,18 @@ class DoublyLinkedList:
                 node.next.prev = node
                 pointer.next = node
 
+    def traverse(self):
+        if self.head is None:
+            print("Linked list is empty.")
+        else:
+            pointer = self.head
+            while pointer:
+                if pointer.next is None:
+                    print(pointer.value)
+                else:
+                    print(pointer.value, end="->")
+                pointer = pointer.next
+
 
 if __name__ == "__main__":
     d = DoublyLinkedList()
@@ -54,3 +63,4 @@ if __name__ == "__main__":
     d.insert(2, 1)
     d.insert(6, 2)
     print([node.value for node in d])
+    d.traverse()
