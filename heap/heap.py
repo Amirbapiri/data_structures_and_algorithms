@@ -37,5 +37,58 @@ implemented using other data structures. We use ordered array.
             (It's smallest value in Min-Heap.)
     - Has two primary operations: inserting and deleting
             
+    - Common operations on Binary Heap:
+        - Creation of Binary Heap
+        - Peek top of Binary Heap
+        - Extract Min / Extract Max 
+        - Traversal of Binary Heap
+        - Size of Binary Heap
+        - Insert value in Binary Heap
+        - Delete the entire Binary heap
     
+    - Implemention Options
+        - Array Implementation
+            Insertion:
+                left child: cell[2x]
+                right child: cell[2x + 1]
+        - Reference / Pointer Implementation
+
 """
+
+class Heap:
+    def __init__(self, size):
+        self.custom_list = (size + 1) * [None]
+        self.heap_size = 0
+        self.max_size = size + 1
+    
+    def peak(self):
+        if self.heap_size:
+            return self.custom_list[1]
+        return "Heap is empty"
+    
+    def size_of_heap(self):
+        if self.heap_size:
+            return self.heap_size
+        return "Heap is empty"
+    
+    def level_order_traversal(self):
+        if self.heap_size:
+            for i in range(1, self.heap_size + 1):
+                print(self.custom_list[i])
+        return "Heap is empty"
+
+
+def peak(root_node):
+    if not root_node:
+        return
+    return root_node.custom_list[1]
+
+def size_of_heap(root_node):
+    if not root_node:
+        return
+    return root_node.heap_size
+
+
+if __name__ == "__main__":
+    h = Heap(5)
+    print(h.custom_list)
