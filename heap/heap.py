@@ -121,6 +121,53 @@ class Heap:
         self.adjust(index=self.heap_size, heap_type=heap_type)
         return "The value has been inserted."
 
+    def adjust_extract(self, index, heap_type, node=None):
+        left_index = index * 2
+        right_index = (index * 2) + 1
+        swap_child = 0
+        if self.heap_size < left_index:
+            return
+        elif self.heap_size == left_index:
+            if heap_type == HeapType.MIN_HEAP:
+                if self.custom_list[index] > self.custom_list[left_index]:
+                    self.custom_list[index], self.custom_list[left_index] = self.custom_list[left_index], self.custom_list[index]
+                return
+            else:
+                if self.custom_list[index] < self.custom_list[left_index]:
+                    self.custom_list[index], self.custom_list[left_index] = self.custom_list[left_index], self.custom_list[index]
+                return
+        else:
+            if heap_type == HeapType.MIN_HEAP:
+                if self.custom_list[left_index] < self.custom_list[right_index]:
+                    swap_child = left_index
+                else:
+                    swap_child = right_index
+                if self.custom_list[index] > self.custom_list[swap_child]:
+                    self.custom_list[index], self.custom_list[swap_child] = self.custom_list[swap_child], self.custom_list[index]
+            else:
+                if self.custom_list[left_index] > self.custom_list[right_index]:
+                    swap_child = left_index
+                else:
+                    swap_child = right_index
+                if self.custom_list[index] < self.custom_list[swap_child]:
+                    self.custom_list[index], self.custom_list[swap_child] = self.custom_list[swap_child], self.custom_list[index]
+            self.adjust_extract(self.custom_list[index], heap_type=heap_type)
+
+    def extract_node(self, heap_type):
+        """
+        # Time complexity: O(LogN)
+        # Space complexity: O(LogN)
+        """
+        if not self.heap_size:
+            return
+        extracted_node = self.custom_list[1]
+        self.custom_list[1] = self.custom_list[self.heap_size]
+        self.custom_list[self.heap_size] = None
+        self.heap_size -= 1
+        self.adjust_extract(1, heap_type=heap_type)
+
+        return extracted_node
+
 
 if __name__ == "__main__":
     h = Heap(5)
@@ -135,3 +182,6 @@ if __name__ == "__main__":
     print(h.custom_list)
 
     h.level_order_traversal()
+
+    print(h.extract_node(HeapType.MAX_HEAP))
+    print(h.custom_list)
