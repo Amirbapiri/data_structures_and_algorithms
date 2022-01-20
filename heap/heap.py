@@ -168,6 +168,12 @@ class Heap:
 
         return extracted_node
 
+    def delete(self):
+        """
+        This method, deletes the entire binary heap
+        """
+        self.custom_list = None
+
 
 if __name__ == "__main__":
     h = Heap(5)
