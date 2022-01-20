@@ -54,41 +54,84 @@ implemented using other data structures. We use ordered array.
         - Reference / Pointer Implementation
 
 """
+from enum import Enum
+
+
+class HeapType(Enum):
+    MIN_HEAP = "MIN_HEAP",
+    MAX_HEAP = "MAX_HEAP"
+
 
 class Heap:
     def __init__(self, size):
         self.custom_list = (size + 1) * [None]
         self.heap_size = 0
         self.max_size = size + 1
-    
+
     def peak(self):
         if self.heap_size:
             return self.custom_list[1]
         return "Heap is empty"
-    
+
     def size_of_heap(self):
         if self.heap_size:
             return self.heap_size
         return "Heap is empty"
-    
+
     def level_order_traversal(self):
         if self.heap_size:
             for i in range(1, self.heap_size + 1):
                 print(self.custom_list[i])
         return "Heap is empty"
 
+    def adjust(self, index, heap_type, node=None):
+        parent_index = int(index / 2)
+        if index <= 1:
+            return
+        if heap_type == HeapType.MIN_HEAP:
+            if self.custom_list[index] < self.custom_list[parent_index]:
+                self.custom_list[index], self.custom_list[parent_index] = self.custom_list[parent_index], self.custom_list[index]
+            self.adjust(
+                index=parent_index,
+                node=self.custom_list[index],
+                heap_type=heap_type
+            )
+        elif heap_type == HeapType.MAX_HEAP:
+            if self.custom_list[index] > self.custom_list[parent_index]:
+                self.custom_list[index], self.custom_list[parent_index] = self.custom_list[parent_index], self.custom_list[index]
+            self.adjust(
+                index=parent_index,
+                node=self.custom_list[index],
+                heap_type=heap_type
+            )
+        else:
+            return None
 
-def peak(root_node):
-    if not root_node:
-        return
-    return root_node.custom_list[1]
+    def insert(self, value, heap_type):
+        """
+        # Time complexity: O(LogN)
+        # Space complexity: O(LogN)
+        """
+        if (self.heap_size + 1) == self.max_size:
+            return "The binary heap is full"
+        self.custom_list[self.heap_size + 1] = value
+        self.heap_size += 1
 
-def size_of_heap(root_node):
-    if not root_node:
-        return
-    return root_node.heap_size
+        # put the new value to it's proper position
+        self.adjust(index=self.heap_size, heap_type=heap_type)
+        return "The value has been inserted."
 
 
 if __name__ == "__main__":
     h = Heap(5)
     print(h.custom_list)
+    h.insert(4, HeapType.MAX_HEAP)
+    print(h.custom_list)
+    h.insert(5, HeapType.MAX_HEAP)
+    print(h.custom_list)
+    h.insert(2, HeapType.MAX_HEAP)
+    print(h.custom_list)
+    h.insert(1, HeapType.MAX_HEAP)
+    print(h.custom_list)
+
+    h.level_order_traversal()
