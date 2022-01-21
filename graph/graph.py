@@ -35,6 +35,18 @@
         - Adjacency List: an adjacency list is a collection of unordered list
           used to represent a graph. Each list describes the set of neighbors
           of a vertex in the graph.
+
+    - BFS vs DFS
+        -- BFS
+            - How does it work internally? It goes in breath first.
+            - Which data structure does it use internally? Queue.
+            - When to use? If we know that the target is close to the
+              starting point.
+        -- DFS
+            - How does it work internally? It goes in depth first.
+            - Which data structure does it use internally? Stack.
+            - When to use? If we know that the target vertex is burried very
+              deep.
 """
 
 
