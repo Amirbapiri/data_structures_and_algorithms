@@ -47,6 +47,37 @@ class Graph:
     def add_edge(self, vertex, edge):
         self.graph_dict[vertex].append(edge)
 
+    def bfs(self, vertex):
+        """
+        BFS is an algorithm for traversing graph data structure. It starts
+        at some arbitrary node of a graph and explores the neighbor nodes first,
+        before moving to the next level neighbors.
+
+        BSF can be reached through following these steps:
+            -   Enqueue any starting vertex
+                (any vertex can be a start point since traversing graph
+                 means visiting all vertices, as we know, vertices are all connected to eachother somehow.)
+            -   while queue is not empty:
+                -   next_vertext_to_be_visited = dequeue()
+                    if next_vertext_to_be_visited is unvisited:
+                        - mark it as visited
+                        - enqueue all adjacent
+                        - unvisited vertices of next_vertext_to_be_visited
+
+        Time complexity: O(V + E)
+        Space complexity: O(V + E)
+        """
+        visited = [vertex]
+        queue = [vertex]
+
+        while queue:
+            dequeue = queue.pop(0)
+            print(dequeue)
+            for adjacent in self.graph_dict[dequeue]:
+                if adjacent not in visited:
+                    visited.append(adjacent)
+                    queue.append(adjacent)
+
 
 if __name__ == "__main__":
     graph_dict = {
@@ -59,6 +90,5 @@ if __name__ == "__main__":
     }
 
     graph = Graph(graph_dict=graph_dict)
-    print(graph.graph_dict)
-    graph.add_edge("e", "c")
-    print(graph.graph_dict)
+
+    graph.bfs("a")
