@@ -78,6 +78,33 @@ class Graph:
                     visited.append(adjacent)
                     queue.append(adjacent)
 
+    def dfs(self, vertex):
+        """
+        DFS is an algorithm for traversing a graph data structure which starts
+        selection some arbitrary vertex and explores as far as possible along each edge before backtracking.
+
+        DFS can be reached through following these steps:
+            -   Push any starting vertex
+            -   While stack is not empty:
+                -   vertex_to_be_popped = pop()
+                    if vertex_to_be_popped is unvisited:
+                        mark it visited
+                        push all adjacent
+                        unvisited vertices of vertex_to_be_popped
+
+        Time complexity: O(V + E)
+        Space complexity: O(V + E)       
+        """
+        visited = [vertex]
+        stack = [vertex]
+        while stack:
+            vertex_to_pop = stack.pop()
+            print(vertex_to_pop)
+            for adjacent in self.graph_dict[vertex_to_pop]:
+                if adjacent not in visited:
+                    visited.append(adjacent)
+                    stack.append(adjacent)
+
 
 if __name__ == "__main__":
     graph_dict = {
@@ -91,4 +118,7 @@ if __name__ == "__main__":
 
     graph = Graph(graph_dict=graph_dict)
 
+    print("BFS: ->")
     graph.bfs("a")
+    print("DFS: ->")
+    graph.dfs("a")
