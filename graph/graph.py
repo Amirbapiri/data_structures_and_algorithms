@@ -35,6 +35,30 @@
         - Adjacency List: an adjacency list is a collection of unordered list
           used to represent a graph. Each list describes the set of neighbors
           of a vertex in the graph.
-        
-
 """
+
+
+class Graph:
+    def __init__(self, graph_dict=None):
+        if graph_dict is None:
+            graph_dict = {}
+        self.graph_dict = graph_dict
+
+    def add_edge(self, vertex, edge):
+        self.graph_dict[vertex].append(edge)
+
+
+if __name__ == "__main__":
+    graph_dict = {
+        "a": ["b", "c"],
+        "b": ["a", "b", "e"],
+        "c": ["a", "e"],
+        "d": ["b", "e", "f"],
+        "e": ["d", "f"],
+        "f": ["d", "e"]
+    }
+
+    graph = Graph(graph_dict=graph_dict)
+    print(graph.graph_dict)
+    graph.add_edge("e", "c")
+    print(graph.graph_dict)
