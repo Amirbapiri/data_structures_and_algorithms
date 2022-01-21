@@ -3,14 +3,14 @@
 ## TODO
 - [x] Singly Linked list
 - [x] Circular Singly Linked list
-- [ ] Doubly Linked list
+- [x] Doubly Linked list
 - [ ] Circular Doubly Linked list
 - [x] Stack
-- [ ] Queue
-- [ ] Tree / Binary Tree
+- [x] Queue
+- [x] Tree / Binary Tree
 - [ ] Binary Search Tree
 - [ ] AVL Tree
-- [ ] Binary Heap
+- [x] Binary Heap
 - [ ] Trie
 - [x] Bubble Sort
 - [x] Selection Sort
@@ -20,6 +20,7 @@
 - [ ] Quick Sort
 - [ ] Heap Sort
 - [ ] Hashing
+- [x] Graph
 - [ ] Searching Algorithms
 - [ ] Graph Algorithms
-- [ ] Graph Traversing
+- [x] Graph Traversing
