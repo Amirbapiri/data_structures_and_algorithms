@@ -28,6 +28,21 @@
         One classical approach to handling collisions is known as separate
         chaining. When a collision occurs, instead of placing a single value
         in a position(cell), it places in it a reference to an array.
+        - There are several techniques to handle it:
+            - Direct chaining
+                * In this situation, the hash table never fills up.
+                * Huge linked list causes performance issues (Looking up Time complexity becomes O(N))
+            - Open Addressing:
+                * Easy Implementation
+                * When Hash Table fills up, creation of new Hash Table affects performance
+                    (Time complexity for search operation becomes O(N))
+                - Linear Probing
+                - Quadratic Probing
+                - Double hashing
+            
+            Notes:
+                * If the input size is known we always use "Open Addressing".
+                * If we perform deletion operation frequently we use "Direct Hashing".
 
     -   Efficiency
         Ultimately, a hash table's efficiency depends on three factors:
