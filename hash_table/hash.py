@@ -40,4 +40,17 @@
         *   A good hash function, therefore, is one that distributes its
             data across all available cells. The more we can spread out our
             data, the fewer collisions we will have.
+    
+    -   Terminology:
+        - Hash Function: A function that can be used to map of arbitrary size
+                         to data of fixed size.
+        - Key: Input data by a user
+        - Hash value: A value that is returned by Hash function.
+        - Hash Table: It's a data structure which implements an associative
+                      array abstract data type, a structure that can map
+                      keys to values.
+        - Collision: A collision occurs when two diffrent keys to a hash function
+                     produce the same output.
+        
+        
 """
