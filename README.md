@@ -8,7 +8,7 @@
 - [x] Stack
 - [x] Queue
 - [x] Tree / Binary Tree
-- [ ] Binary Search Tree
+- [x] Binary Search Tree
 - [ ] AVL Tree
 - [x] Binary Heap
 - [ ] Trie
